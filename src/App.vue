@@ -60,6 +60,16 @@
     </fieldset>
 
   </fieldset>
+
+  <fieldset><legend>Estilos</legend>
+    <p v-bind:style="{ color: textColor }">inline style object</p>
+    <p :style="textColorObject">inline style object bind</p>
+    <p class="test-class-1" v-bind:class="testclass2">class bind</p>
+    <p v-bind:class="classList">Class Bind List</p>
+    <p v-bind:class="[testclass1, testclass2]">Class Bind List inline</p>
+    <p :class="[1 > 0 ? testclass1 : testeclass2]">Class expression: 1 > 0 </p>
+    <p :class="[4 > 3 ? 'test-class-1' : 'teste-class-2']">Class expression: 4 > 3</p>
+  </fieldset>
 </template>
 
 <script>
@@ -71,6 +81,15 @@ export default {
       age: 0,
       urlGOOGLE: "https://www.google.com/",
       urlGOOGLEDescription: "Clique aqui para acessar o GOOGLE",
+      textColor: "red",
+      textColorObject:{
+        color: 'green',
+        fontSize: "25px"
+      }, 
+      testclass1: 'test-class-1',
+      testclass2: 'test-class-2',
+      classList: ["teste-class-1", "teste-class-2"]
+
     }
   },
   methods:{
@@ -123,4 +142,12 @@ button{
   margin-left: 1.5rem;
   margin-top: 1.1rem;
 }
+
+.test-class-1{
+  font-style: italic;
+}
+.test-class-2{
+  color: blue
+}
+
 </style>
