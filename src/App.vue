@@ -1,15 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h1>VUE</h1>
+  </div>
+  <fieldset>
+    <legend>Methods</legend>
+    <p>{{ age }}</p>
+    <button v-on:click="incrementAge">Incrementar Idade</button>
+    <button @click="decrementAge">Decrementar Idade</button>
+  </fieldset>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  data(){
+    return{
+      age: 0,
+    }
+  },
+  methods:{
+    incrementAge(){
+      return this.age++;
+    },
+    decrementAge(){
+      return this.age--;
+    }
   }
 }
 </script>
